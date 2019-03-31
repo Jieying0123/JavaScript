@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* h1{
+            color:#f18f84;
+        } */
+        em {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="result">
+        <!-- <strong>攝氏20度，等於華式68度</strong> -->
+    </div>
+    <button id="show" onclick="doCalculate();">顯示結果</button>
+    <script>
+        //內容物是Script
+        //alert("bom");    //分號加不加都無所謂
+        // var tempc=prompt("請輸入攝氏溫度");
+        // var tempf=(tempc*1.8)+32;
+        // document.writeln("攝氏"+tempc+"度，等於華氏"+tempf+"度");
+
+        // -------------------------------------------------------------------
+
+        // for(var i=2;i<10;i++){
+        //     for(var j=1;j<10;j++){
+        //         document.writeln(i+" × "+j+" = "+i*j +"<br>");
+        //         // document.writeln("<br>");
+        //     }
+        //     document.writeln("<br>");
+        // }
+        // ------------------------------------------------------------------------
+        // var x={
+        //     lastName:"Hello",
+        //     firstName:"Kitty",
+        //     gender:"Female"
+        // }
+
+        // for(var prop in x){
+        //     var value=x[prop];
+        //     document.writeln("屬性 "+prop+" = "+value+"<br>");
+        // }
+        // ----------------------------------------------------------------------
+        // var run = true;
+
+        // while(run) {
+        //     var number = Math.floor(Math.random()*10);
+        //     console.log(number);
+        //     document.writeln(number);
+        //     if(number == 5) {
+        //         run=false;
+        //     }
+        // }
+
+        // -------------------------------------------------------------------------
+        // var a=8;
+        // var b=7;
+        // var c=a*b;
+        // document.getElementById("tb").innerHTML+=c;
+        // ----------------------------------------------------------
+
+
+
+        // var tempc = prompt("請輸入攝氏溫度");
+        // var tempf = (tempc * 1.8) + 32;
+        // var text = "攝氏" + tempc + "度，等於華氏" + tempf + "度";
+        // var s = document.createElement("h1");
+        // s.innerHTML = text;
+        // s.classList.add("test");
+        // document.getElementById("result").appendChild(s);
+        // ---------------------------------------------------------------------
+
+        // var x = document.createElement("red")
+        // for (i = 2; i < 10; i++) {
+        //     for (var j = 1; j < 10; j++) {
+        //         var result = i * j;
+        //         var div = document.createElement("div");
+        //         div.innerHTML = "<em>" + i + "</em>x<em>";
+        //         document.getElementById("result").appendChild(s);
+        //         // document.writeln("<br>");
+        //     }
+        //     document.writeln("<br>");
+        // }
+        // -------------------------------------------------------------
+
+        document.getElementById("show").onclick=doCalculate;
+
+        function doCalculate() {
+            var tempc = prompt("請輸入攝氏溫度");
+            var tempf = (tempc * 1.8) + 32;
+            var text = "攝氏" + tempc + "度，等於華氏" + tempf + "度";
+            
+            var strong=document.createElement("strong");
+            strong.innerHTML=text;
+            document.getElementById("result").appendChild(strong);
+        }
+    </script>
+</body>
+
+</html>
