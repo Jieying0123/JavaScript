@@ -212,40 +212,40 @@
         if (existed[i] == answer[i]) {
           a++;
         }
-        else{
+        else {
           for (j = 0; j < existed.length; j++) {
-          if (existed[i] == answer[j]) {
-            b++;
+            if (existed[i] == answer[j]) {
+              b++;
+            }
           }
         }
-        }
-        
+
       }
-    
 
-    // var position = answer.indexOf(number);
-    // if (position == i) {
-    //   a++;
-    // }
-    // else if (position != -1) {
-    //   b++;
-    // }
-    // var AB = a+"A"+b+"B";
-    // alert(a+"A"+b+"B");
 
-    var display = a + "A" + b + "B";
+      // var position = answer.indexOf(number);
+      // if (position == i) {
+      //   a++;
+      // }
+      // else if (position != -1) {
+      //   b++;
+      // }
+      // var AB = a+"A"+b+"B";
+      // alert(a+"A"+b+"B");
 
-    if (a != 4) {
-      
-      document.getElementById("guessResults").innerHTML += "<li class='list-group-item'><span class='label label-danger'>" + display + "</span> " + thisRoundAnswer + "</li>";
-      document.getElementById("userGuess").value = "";
-    }
-    else {
-      document.getElementById("guessResults").innerHTML += "<li class='list-group-item'><span class='label label-success'>" + display + "</span> " + thisRoundAnswer + "</li>";
-      document.getElementById("userGuess").value = "";
-      alert("恭喜破關~！");
-    }
-    var x = document.getElementsByClassName("label")[0].getAttribute("class", "label label-danger");
+      var display = a + "A" + b + "B";
+
+      if (a != 4) {
+
+        document.getElementById("guessResults").innerHTML += "<li class='list-group-item'><span class='label label-danger'>" + display + "</span> " + thisRoundAnswer + "</li>";
+        document.getElementById("userGuess").value = "";
+      }
+      else {
+        document.getElementById("guessResults").innerHTML += "<li class='list-group-item'><span class='label label-success'>" + display + "</span> " + thisRoundAnswer + "</li>";
+        document.getElementById("userGuess").value = "";
+        alert("恭喜破關~！");
+      }
+      var x = document.getElementsByClassName("label")[0].getAttribute("class", "label label-danger");
     }
 
     // var ul=document.getElementById("guessResults")
