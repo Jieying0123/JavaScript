@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+
+    <title>抽獎機</title>
+    <style>
+        .input-group {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        #display {
+            width: 250px;
+            height: 250px;
+            background: #ffe1e4;
+            margin: 0 auto;
+            border-color: red;
+            border-style: dotted;
+            font-size: 150px;
+            text-align: center;
+
+        }
+
+        /* button { */
+        /* width: 100px; */
+        /* align-items: center; */
+        /* text-align: center; */
+        /* margin: 20px auto; */
+        /* display: flex; */
+        /* justify-content: center; */
+        /* } */
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5 mb-3" style="font-family: 'Noto Sans TC', sans-serif;">抽獎機</h1>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="font-family: 'Noto Sans TC', sans-serif;">最小值</span>
+            </div>
+            <input id="min-num" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="font-family: 'Noto Sans TC', sans-serif;">最大值</span>
+            </div>
+            <input id="max-num" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div id="display"></div>
+        <div>
+            <p id="chosenNum" class="text-center my-4" style="font-family: 'Noto Sans TC', sans-serif;">已抽過:</p>
+        </div>
+        <center><button onclick="getRange()" type="button" class="btn btn-outline-danger"
+                style="width:250px;font-family: 'Noto Sans TC', sans-serif;">抽</button></center>
+
+
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        var z = 0;
+        var chosen = [];
+
+        function getRange() {
+
+            var range = [];
+            var j = 0;
+            var min = parseInt($("#min-num").val());
+            var max = parseInt($("#max-num").val());
+
+            //各種防呆
+            if (min == "" || max == "") {
+                alert("輸入框不能為空！");
+                return;
+            }
+            else if (isNaN(min) == true || isNaN(max) == true) {
+                alert("輸入框必須是數字！");
+                return;
+            }
+            else if(max-min<=0)
+            {
+                alert("最大值要大於最小值");
+                return;
+            }
+
+            var randomNum = 0;
+            do {
+                randomNum = getRandom(min, max);
+            } while (chosen.indexOf(randomNum) != -1)
+            document.getElementById("display").innerHTML = randomNum;
+            chosen[z] = randomNum;
+            z++;
+            document.getElementById("chosenNum").innerHTML = "已抽過:" + chosen;
+
+            if (chosen.length == max - min + 1) {
+                alert("全部抽完囉~~~");
+                location.reload();
+            }
+        }
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+    </script>
+</body>
+
+</html>
